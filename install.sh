@@ -116,6 +116,20 @@ install_zsh_plugins() {
         git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
         log_success "zsh-syntax-highlighting installed"
     fi
+
+    # zsh-completions
+    if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-completions" ]]; then
+        log_info "Installing zsh-completions..."
+        git clone https://github.com/zsh-users/zsh-completions "$ZSH_CUSTOM/plugins/zsh-completions"
+        log_success "zsh-completions installed"
+    fi
+
+    # zsh-history-substring-search
+    if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-history-substring-search" ]]; then
+        log_info "Installing zsh-history-substring-search..."
+        git clone https://github.com/zsh-users/zsh-history-substring-search "$ZSH_CUSTOM/plugins/zsh-history-substring-search"
+        log_success "zsh-history-substring-search installed"
+    fi
 }
 
 # -----------------------------------------------------------------------------

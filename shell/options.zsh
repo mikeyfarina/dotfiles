@@ -30,3 +30,11 @@ setopt NO_CASE_GLOB           # Case insensitive globbing
 # Jobs
 setopt NO_BG_NICE             # Don't nice background jobs
 setopt NO_HUP                 # Don't kill background jobs on exit
+
+# =============================================================================
+# Key Bindings
+# =============================================================================
+
+# History substring search (up/down arrows)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
