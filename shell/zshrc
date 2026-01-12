@@ -4,6 +4,9 @@
 # Managed by dotfiles: https://github.com/mikeyfarina/dotfiles
 # =============================================================================
 
+# Disable p10k configuration wizard (we have our config)
+typeset -g POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
 # Enable Powerlevel10k instant prompt (must be near top)
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
