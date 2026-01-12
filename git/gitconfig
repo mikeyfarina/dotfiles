@@ -1,0 +1,54 @@
+[user]
+    email = mikeyfarina7@gmail.com
+    name = mikeyfarina
+
+[core]
+    editor = vim
+    pager = delta
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[diff]
+    colorMoved = default
+
+[merge]
+    conflictstyle = diff3
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = Dracula
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[alias]
+    s = status
+    co = checkout
+    cob = checkout -b
+    br = branch
+    ci = commit
+    ca = commit --amend
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    lg = log --oneline --graph --decorate -20
+    wip = !git add -A && git commit -m 'WIP'

@@ -1,0 +1,60 @@
+# =============================================================================
+# ~/.zshrc - Main Zsh Configuration
+# =============================================================================
+# Managed by dotfiles: https://github.com/mikeyfarina/dotfiles
+# =============================================================================
+
+# Enable Powerlevel10k instant prompt (must be near top)
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# -----------------------------------------------------------------------------
+# Dotfiles location
+# -----------------------------------------------------------------------------
+export DOTFILES="$HOME/dotfiles"
+
+# -----------------------------------------------------------------------------
+# Load modular configurations
+# -----------------------------------------------------------------------------
+for config in path exports options; do
+    [[ -f "$DOTFILES/shell/${config}.zsh" ]] && source "$DOTFILES/shell/${config}.zsh"
+done
+
+# -----------------------------------------------------------------------------
+# Oh My Zsh
+# -----------------------------------------------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Plugins (platform-aware)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf)
+
+# Add platform-specific plugins
+case "$(uname -s)" in
+    Darwin)
+        plugins+=(macos docker npm)
+        ;;
+    Linux)
+        plugins+=(docker npm)
+        ;;
+esac
+
+source "$ZSH/oh-my-zsh.sh"
+
+# -----------------------------------------------------------------------------
+# Load remaining configurations (after oh-my-zsh)
+# -----------------------------------------------------------------------------
+for config in aliases functions nvm tools; do
+    [[ -f "$DOTFILES/shell/${config}.zsh" ]] && source "$DOTFILES/shell/${config}.zsh"
+done
+
+# -----------------------------------------------------------------------------
+# Powerlevel10k
+# -----------------------------------------------------------------------------
+[[ -f "$DOTFILES/tools/p10k.zsh" ]] && source "$DOTFILES/tools/p10k.zsh"
+
+# -----------------------------------------------------------------------------
+# Local overrides (not tracked in git)
+# -----------------------------------------------------------------------------
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
