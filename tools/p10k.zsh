@@ -60,10 +60,7 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     command_execution_time    # previous command duration
     background_jobs           # suspended jobs indicator
-    node_version              # node.js version (in node projects only)
     virtualenv                # python virtual environment
-    context                   # user@host
-    time                      # current time
   )
 
   # Basic style options that define the overall prompt look.
