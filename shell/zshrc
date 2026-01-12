@@ -13,9 +13,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # -----------------------------------------------------------------------------
-# Dotfiles location
+# Dotfiles location (Codespaces uses a different path)
 # -----------------------------------------------------------------------------
-export DOTFILES="$HOME/dotfiles"
+if [[ -n "$CODESPACES" && -d "/workspaces/.codespaces/.persistedshare/dotfiles" ]]; then
+    export DOTFILES="/workspaces/.codespaces/.persistedshare/dotfiles"
+else
+    export DOTFILES="$HOME/dotfiles"
+fi
 
 # -----------------------------------------------------------------------------
 # Load modular configurations
