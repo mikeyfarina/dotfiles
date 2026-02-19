@@ -28,6 +28,4 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export BUN_INSTALL="$HOME/.bun"
 [[ -d "$BUN_INSTALL" ]] && export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Local binaries
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
+# Note: $HOME/bin and $HOME/.local/bin are set in path.zsh

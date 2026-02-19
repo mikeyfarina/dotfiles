@@ -45,9 +45,9 @@ ff() {
 }
 
 # -----------------------------------------------------------------------------
-# Quick grep in files
+# Quick grep in files (named "search" to avoid shadowing the fg built-in)
 # -----------------------------------------------------------------------------
-fg() {
+ss() {
     if command -v rg &>/dev/null; then
         rg "$@"
     else
